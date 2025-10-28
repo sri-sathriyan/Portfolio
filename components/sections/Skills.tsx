@@ -1,4 +1,4 @@
-/// <reference types="@react-three/fiber" />
+// FIX: Removed the unnecessary triple-slash directive. Type definitions for @react-three/fiber are automatically discovered by TypeScript through the import statements, and the directive was causing resolution errors.
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { IconVortex } from '../3d/IconVortex';

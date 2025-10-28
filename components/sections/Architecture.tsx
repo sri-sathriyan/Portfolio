@@ -1,4 +1,4 @@
-/// <reference types="@react-three/fiber" />
+// FIX: Removed the unnecessary triple-slash directive. Type definitions for @react-three/fiber are automatically discovered by TypeScript through the import statements, and the directive was causing resolution errors.
 import React, { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Icosahedron, OrbitControls } from '@react-three/drei';
@@ -7,6 +7,7 @@ import { SiKubernetes } from 'react-icons/si';
 import { Fade } from 'react-awesome-reveal';
 import type { IconType } from 'react-icons';
 
+// FIX: Changed the type of the `icon` prop from `React.ElementType` to `IconType` to correctly type icon components. This allows props like `className` to be passed without TypeScript errors.
 const DiagramBox: React.FC<{ icon: IconType; title: string; children?: React.ReactNode }> = ({ icon: Icon, title, children }) => (
     <div className="relative bg-gray-800/50 p-4 rounded-lg border border-gray-700 flex flex-col items-center justify-center text-center backdrop-blur-sm">
         <Icon className="w-8 h-8 text-primary-dark mb-2" />

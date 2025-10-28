@@ -1,4 +1,4 @@
-/// <reference types="@react-three/fiber" />
+// FIX: Removed the unnecessary triple-slash directive. Type definitions for @react-three/fiber are automatically discovered by TypeScript through the import statements, and the directive was causing resolution errors.
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { TorusKnot } from '@react-three/drei';
@@ -14,6 +14,7 @@ export const DevOpsModel: React.FC = () => {
   useFrame((state) => {
     if (modelRef.current) {
         const t = state.clock.getElapsedTime();
+        // FIX: Corrected variable from `model.current` to `modelRef.current` to avoid runtime error.
         modelRef.current.rotation.x = Math.sin(t * 0.5) * 0.2;
         modelRef.current.rotation.y = Math.cos(t * 0.3) * 0.2;
         modelRef.current.position.y = Math.sin(t * 0.7) * 0.1;
