@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
-    "composite": true,
+    "composite": true,                        // allows this project to be referenced
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "moduleResolution": "Node",               // ✅ use Node here, not "bundler"
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true                   // ✅ keep consistent with main tsconfig
   },
-  "include": ["vite.config.ts", "tailwind.config.js"]
+  "include": [
+    "vite.config.ts",
+    "tailwind.config.js"
+  ]
 }
