@@ -5,8 +5,7 @@ import { fileURLToPath } from 'url'
 
 export default defineConfig({
   plugins: [react()],
-  // ✅ Use relative paths for Netlify and Docker static servers
-  base: './',
+  base: './', // ✅ Fix: use relative base for Netlify/Docker
   resolve: {
     alias: {
       '@': path.resolve(path.dirname(fileURLToPath(import.meta.url)), './'),
