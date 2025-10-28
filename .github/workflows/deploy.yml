@@ -1,0 +1,38 @@
+
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Trigger the workflow on pushes to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+        # You might need to add a base path to vite.config.ts if deploying to a subdirectory
+        # For example, base: '/your-repo-name/'
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # user_name: 'github-actions[bot]' # Optional
+          # user_email: 'github-actions[bot]@users.noreply.github.com' # Optional
+          # cname: your-custom-domain.com # Optional: if you have a custom domain
